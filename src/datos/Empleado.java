@@ -5,6 +5,9 @@
  */
 package datos;
 
+import excepciones.NombreExcepcion;
+import excepciones.SalarioExcepcion;
+
 /**
  *
  * @author Profe
@@ -14,7 +17,14 @@ public abstract class Empleado implements Contrato{
     protected String nombre;
     protected double salario;
 
-    public Empleado(int id, String nombre, double salario) {
+    public Empleado(int id, String nombre, double salario) 
+            throws NombreExcepcion, SalarioExcepcion {
+        if(nombre.length() <= 10)
+            throw new NombreExcepcion();
+        
+        if(salario < 737000)
+           throw new SalarioExcepcion();
+        
         this.id = id;
         this.nombre = nombre;
         this.salario = salario;

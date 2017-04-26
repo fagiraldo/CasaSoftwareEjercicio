@@ -17,6 +17,11 @@ public class CasaSoftware {
     public CasaSoftware() {
         this.contratos = new ArrayList<>();
     }
+
+    public ArrayList<Contrato> getContratos() {
+        return contratos;
+    }
+    
     
     public void adicionarContrato(Contrato contrato){
       this.contratos.add(contrato);

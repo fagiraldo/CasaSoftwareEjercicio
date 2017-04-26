@@ -5,6 +5,9 @@
  */
 package datos;
 
+import excepciones.LenguajeExcepcion;
+import excepciones.NombreExcepcion;
+import excepciones.SalarioExcepcion;
 import java.util.ArrayList;
 
 /**
@@ -14,10 +17,16 @@ import java.util.ArrayList;
 public class Lider extends Programador{
     private ArrayList<Programador> equipo;
     
-    public Lider(int id, String nombre, double salario, String lenguaje) {
+    public Lider(int id, String nombre, double salario, String lenguaje) 
+            throws NombreExcepcion, SalarioExcepcion, LenguajeExcepcion {
         super(id, nombre, salario, lenguaje);
         this.equipo= new ArrayList<>();
     }
+
+    public ArrayList<Programador> getEquipo() {
+        return equipo;
+    }
+    
     
     public void adicionarProgramador (Programador programador){
       this.equipo.add(programador);
@@ -25,13 +34,13 @@ public class Lider extends Programador{
    
     @Override
     public double calcularSalario(){
-      double salarioTotal = this.calcularSalario();
+      double salarioTotal = super.calcularSalario();
       salarioTotal+=(salarioTotal*(this.equipo.size()*0.1));
       return salarioTotal;
     }
     @Override
     public String mostrarInformacion(){
-       String informacion = this.mostrarInformacion();
+       String informacion = super.mostrarInformacion();
        informacion+=" -- Equipo ---\n";
         for (Programador programador : equipo) {
             informacion += " " + programador.mostrarInformacion();

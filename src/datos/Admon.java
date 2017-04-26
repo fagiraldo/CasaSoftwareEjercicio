@@ -5,13 +5,17 @@
  */
 package datos;
 
+import excepciones.NombreExcepcion;
+import excepciones.SalarioExcepcion;
+
 /**
  *
  * @author Profe
  */
 public class Admon extends Empleado{
 
-    public Admon(int id, String nombre, double salario) {
+    public Admon(int id, String nombre, double salario) 
+            throws NombreExcepcion, SalarioExcepcion {
         super(id, nombre, salario);
     }
 

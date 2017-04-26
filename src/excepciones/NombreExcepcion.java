@@ -5,10 +5,7 @@
  */
 package excepciones;
 
-/**
- *
- * @author Profe
- */
+
 public class NombreExcepcion extends Exception{
     public NombreExcepcion(){
      super("Nombre debe tener 10 Caracteres");
